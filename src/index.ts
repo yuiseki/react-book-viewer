@@ -1,1 +1,1 @@
-export * from './components/Slider';
+export * from './ts/BookViewer';

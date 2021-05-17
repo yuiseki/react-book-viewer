@@ -35,5 +35,8 @@
   },
   "include": [
     "src"
+  ],
+  "typeRoots":[
+    "example/types/**/*"
   ]
 }

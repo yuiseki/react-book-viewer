@@ -1,6 +1,8 @@
 
 import { render } from 'react-dom'
-import { Slider } from '../../src'
+import { BookViewer } from '../../src/ts/BookViewer'
+import { useImage } from './hooks/useImage'
 
-const App = () => <Slider pages={[0,1,2]}/>;
+const images = useImage()
+const App = () => <BookViewer pages={images}/>;
 render(<App />, document.getElementById('root'));
