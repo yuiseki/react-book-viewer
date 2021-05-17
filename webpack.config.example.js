@@ -15,6 +15,14 @@ const baseConfig = {
         use: "ts-loader",
         exclude: /node_modules/
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(jpg|png)$/,
+        loader: 'url-loader'
+      }
     ]
   },
   resolve: {

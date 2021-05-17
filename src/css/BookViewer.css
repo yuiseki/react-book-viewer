@@ -1,0 +1,24 @@
+.container-book-viewer {
+  background-color: gray;
+  height: 100%;
+  width: 100%;
+}
+.image {
+  height: 100%;
+  display: table-cell;
+  margin: auto;
+}
+.tooltip-bar {
+  height: 5%;
+  width: 100%;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+.input {
+  width: 50%;
+  direction: rtl;
+  margin: 1% 0px;
+}
