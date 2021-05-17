@@ -10,7 +10,7 @@ import {BookViewer} from 'react-book-viewer'
 cosnt App = () => {
   pages = ['imgSrc1', 'imgSrc2', 'imgSrc3']
   return (
-    <BookViewer pages={page}/>
+    <BookViewer pages={pages}/>
   )
 }
 ```
