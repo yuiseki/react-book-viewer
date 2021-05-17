@@ -1,0 +1,22 @@
+{
+  "name": "react-book-viewer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Futsukazuki/react-book-viewer.git",
+  "author": "ao-spirogyra",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "16.13.0",
+    "react-dom": "16.13.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.5",
+    "@types/react-dom": "^17.0.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "ts-loader": "^9.1.2",
+    "typescript": "^4.2.4",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0"
+  }
+}
