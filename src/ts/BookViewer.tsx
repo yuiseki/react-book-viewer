@@ -61,7 +61,6 @@ export const BookViewer: React.FC<BookViewer> = ({pages}: BookViewer) => {
           <button className="back-page-button" onClick={backPage} disabled={isFirstPage}tabIndex={-1}><div className="text">aaaaaaaaaaaaaa</div></button>
         </div>
       </div>
-      {console.log(currentPage, isFirstPage)}
       <div className='tooltip-bar'>
         <input className='input' type="range" min={0} max={pages.length-1} onChange={onChange} value={currentPage}tabIndex={-1}/>
       </div>
