@@ -41,7 +41,7 @@ export const BookViewer: React.FC<BookViewer> = ({pages}: BookViewer) => {
       checkFirstPage(newPage)
       checkLastPage(newPage)
   }
-  const message = (e) => {
+  const message = (e: React.KeyboardEvent<HTMLDivElement>) => {
       if (e.which === 65 && lastPage !== true){
        nextPage()
       }else if (e.which === 37 && lastPage !== true){
