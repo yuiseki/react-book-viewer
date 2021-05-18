@@ -19,23 +19,27 @@
   display: flex;
   height: 100%;
   position: absolute;
-  width: 40%;
+  width: auto;
 }
 .next-page-button {
   position: relative;
-  background-color: black;
-  width: 50%;
+  background-color: transparent;
   z-index: 10;
+  right: 10%;
+  border: none;
 }
 
 .back-page-button {
   position: relative;
   background-color: transparent;
-  width: 50%;
   z-index: 10;
+  left: 10%;
+  border: none;
 }
 .text {
-  background-color: white;
+  background-color: transparent;
+  font-size: 50px;
+  color: transparent;
 }
 
 
