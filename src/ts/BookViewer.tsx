@@ -55,7 +55,7 @@ export const BookViewer: React.FC<BookViewer> = ({pages}: BookViewer) => {
   }
   
   return (
-    <div className='container-book-viewer'  onKeyDown={(e) => message(e)} tabIndex="0">
+    <div className='container-book-viewer'  onKeyDown={(e) => message(e)} tabIndex={0}>
       <div className="image-box">
         <img className='image' src={pages[currentPage]} alt="" />
         <div className="page-buttons">
