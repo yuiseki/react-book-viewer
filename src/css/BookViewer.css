@@ -1,13 +1,48 @@
 .container-book-viewer {
   background-color: gray;
-  height: 100%;
-  width: 100%;
+}
+.image-box {
+  height: 95%;
+  text-align: center;
+  width :auto;
+  margin: 0;
+  mix-blend-mode: overlay; 
+  display: flex;
+  justify-content: center;
 }
 .image {
   height: 100%;
-  display: table-cell;
-  margin: auto;
+  width:auto;
+  margin: 0;
 }
+.page-buttons {
+  display: flex;
+  height: 100%;
+  position: absolute;
+  width: auto;
+}
+.next-page-button {
+  position: relative;
+  background-color: transparent;
+  z-index: 10;
+  right: 10%;
+  border: none;
+}
+
+.back-page-button {
+  position: relative;
+  background-color: transparent;
+  z-index: 10;
+  left: 10%;
+  border: none;
+}
+.text {
+  background-color: transparent;
+  font-size: 50px;
+  color: transparent;
+}
+
+
 .tooltip-bar {
   height: 5%;
   width: 100%;
