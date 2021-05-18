@@ -42,13 +42,13 @@ export const BookViewer: React.FC<BookViewer> = ({pages}: BookViewer) => {
       checkLastPage(newPage)
   }
   const message = (e: React.KeyboardEvent<HTMLDivElement>) => {
-      if (e.which === 65 && lastPage !== true){
+      if (e.code === "KeyA" && lastPage !== true){
        nextPage()
-      }else if (e.which === 37 && lastPage !== true){
+      }else if (e.code === "ArrowLeft" && lastPage !== true){
        nextPage()
-      }else if (e.which === 68 && firstPage !== true){
+      }else if (e.code === "KeyD" && firstPage !== true){
         backPage()
-      }else if (e.which === 39 && firstPage !== true){
+      }else if (e.code === "ArrowRight" && firstPage !== true){
         backPage()
       }else{
     }
