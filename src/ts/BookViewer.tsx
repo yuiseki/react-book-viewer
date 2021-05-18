@@ -1,10 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react'
 import '../css/BookViewer.css'
 export interface BookViewer {
-  pages: string[]
+  pages: string[],
+  children?: {
+    Render: React.FC
+    height: string
+  }
 }
 
-export const BookViewer: React.FC<BookViewer> = ({pages}: BookViewer) => {
+export const BookViewer: React.FC<BookViewer> = ({pages, children}: BookViewer) => {
+  if (!children?.height || (!children.height.endsWith('px') && !children.height.endsWith('%'))) {
+    console.error('invalid height. use \'px\' or \'%\'')
+    return null
+  }
   const [currentPage, setCurrentPage] = useState(0)
   const [imgWidth, setImgWidth] = useState<number>(0)
   const [isLastPage, setIsLastPage] = useState(false)
@@ -27,7 +35,14 @@ export const BookViewer: React.FC<BookViewer> = ({pages}: BookViewer) => {
       setIsLastPage(false)
     }
   }
-  
+  let imgHeight;
+  if (children?.height.endsWith('px')) {
+    const heightPx = children.height.split('px')[0]
+    imgHeight = window.innerHeight*0.95-Number(heightPx)
+  } else if (children?.height.endsWith('%')) {
+    const heightPercent = children.height.split('%')[0]
+    imgHeight = window.innerHeight*(1-(0.05+Number(heightPercent)/100))
+  }
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(e.target.value)
     setCurrentPage(newValue)
@@ -59,8 +74,9 @@ export const BookViewer: React.FC<BookViewer> = ({pages}: BookViewer) => {
   document.onkeydown=(e)=>{onKeyDown(e)}
 
   return (
-    <div className='container-book-viewer'>
-      <div className="image-box">
+    <div className='container-book-viewer' style={{height: window.innerHeight}}>
+      {children && <children.Render/>}
+      <div className="image-box" style={{height: imgHeight}}>
         <img className='image' src={pages[currentPage]} alt="" ref={imgElement}/>
         <div className="page-buttons">
           <button className="next-page-button" onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={{width: imgWidth/2}}><div className="text">aaaaaaaaaaaaaa</div></button>
