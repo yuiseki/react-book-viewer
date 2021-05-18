@@ -14,3 +14,27 @@ cosnt App = () => {
   )
 }
 ```
+you can insert header if you want
+```
+const offSetHeight = '80px'
+const Header () = {
+  return (
+    <div className='header' style={{height: offSetHeight}}>
+      <a id="link" href='/'>&gt; top page</a>
+      <a id="link" href='/aboutus'>&gt; about us</a>
+      <a id="link" href='/contactus'>&gt; contact us</a>
+      <a id="link" href='/joinus'>&gt; join us</a>
+    </div>
+  )
+}
+const children = {
+  Render: Header
+  height: offSetHeight
+}
+cosnt App = () => {
+  pages = ['imgSrc1', 'imgSrc2', 'imgSrc3']
+  return (
+    <BookViewer pages={pages} children={children}/>
+  )
+}
+```
