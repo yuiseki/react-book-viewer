@@ -42,9 +42,9 @@ export const BookViewer: React.FC<BookViewer> = ({pages}: BookViewer) => {
       checkLastPage(newPage)
   }
   const message = (e) => {
-      if (e.which === 97 ){
+      if (e.which === 97 && lastPage !== true){
       nextPage()
-      }else if (e.which === 100){
+      }else if (e.which === 100 && firstPage !== true){
         backPage()
       }else{
     }
