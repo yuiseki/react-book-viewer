@@ -48,7 +48,10 @@ export const BookViewer: React.FC<BookViewer> = ({pages}: BookViewer) => {
       backPage()
     }
   }
-  
+  // Don't attach onKeyDown to div element
+  // Otherwise it will stop working
+  document.onkeydown=(e)=>{onKeyDown(e)}
+
   return (
     <div className='container-book-viewer'>
       <div className="image-box">
