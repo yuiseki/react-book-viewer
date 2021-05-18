@@ -9,7 +9,7 @@ export interface BookViewer {
 }
 
 export const BookViewer: React.FC<BookViewer> = ({pages, children}: BookViewer) => {
-  if (!children?.height || (!children.height.endsWith('px') && !children.height.endsWith('%'))) {
+  if (children && (!children?.height || (!children.height.endsWith('px') && !children.height.endsWith('%')))) {
     console.error('invalid height. use \'px\' or \'%\'')
     return null
   }
@@ -42,6 +42,8 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children}: BookViewer) 
   } else if (children?.height.endsWith('%')) {
     const heightPercent = children.height.split('%')[0]
     imgHeight = window.innerHeight*(1-(0.05+Number(heightPercent)/100))
+  } else {
+    imgHeight = window.innerHeight*0.95
   }
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(e.target.value)
