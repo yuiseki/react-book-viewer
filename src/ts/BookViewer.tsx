@@ -64,7 +64,7 @@ export const BookViewer: React.FC<BookViewer> = ({pages}: BookViewer) => {
         </div>
       </div>
       <div className='tooltip-bar'>
-        <input className='input' type="range" min={0} max={pages.length-1} defaultValue={0} onChange={onChange} value={currentPage}/>
+        <input className='input' type="range" min={0} max={pages.length-1} onChange={onChange} value={currentPage}/>
       </div>
     </div>
   )
