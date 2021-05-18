@@ -63,8 +63,8 @@ export const BookViewer: React.FC<BookViewer> = ({pages}: BookViewer) => {
       <div className="image-box">
         <img className='image' src={pages[currentPage]} alt="" ref={imgElement}/>
         <div className="page-buttons">
-          <button className="next-page-button" onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={{width: imgWidth/2}}><div className="text">aaaaaaaaaaaaaa</div></button>
-          <button className="back-page-button" onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={{width: imgWidth/2}}><div className="text">aaaaaaaaaaaaaa</div></button>
+          <button className="next-page-button" onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={{width: imgWidth/2}}></button>
+          <button className="back-page-button" onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={{width: imgWidth/2}}></button>
         </div>
       </div>
       <div className='tooltip-bar'>
