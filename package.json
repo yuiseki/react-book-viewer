@@ -17,6 +17,7 @@
     "prepublishOnly": "yarn transpile",
     "start:dev": "webpack serve --config webpack.config.example.js"
   },
+  "types": "dist/BookViewer.d.ts",
   "peerDependencies": {
     "react": "16.13.0",
     "react-dom": "16.13.0"

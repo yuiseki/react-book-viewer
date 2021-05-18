@@ -31,12 +31,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
-    "declaration": true
+    "declaration": false
   },
   "include": [
     "src"
   ],
   "typeRoots":[
-    "example/types/**/*"
+    "example/types/**/*",
+    "dist/BookViewer.d.ts"
   ]
 }
