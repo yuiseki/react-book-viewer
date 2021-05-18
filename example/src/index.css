@@ -1,0 +1,36 @@
+.header {
+  background: wheat;
+  margin: auto;
+  text-align: center;
+}
+
+.mini {
+ position: absolute;
+}
+
+#link {
+  text-decoration: none;
+  box-sizing: content-box;
+  font: initial;
+  display: inline-flex;
+  margin: 22px 20px;
+  font-size: larger;
+  color: white;
+  font-weight: 700;
+  background: repeating-linear-gradient(
+30deg
+, lightgreen, transparent 100px);
+}
+
+#arrow {
+  width: 1em;
+  height: 1em;
+  top: 25%;
+  left: 33%;
+  transform: rotate(-45deg);
+  border-right: 1px solid burlywood;
+  border-bottom: 1px solid burlywood;
+  z-index: 2;
+  animation: popping-arrow 2s infinite ease-out;
+  color: aquamarine;
+}
