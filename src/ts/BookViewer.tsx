@@ -42,16 +42,20 @@ export const BookViewer: React.FC<BookViewer> = ({pages}: BookViewer) => {
       checkLastPage(newPage)
   }
   const message = (e) => {
-      if (e.which === 97 && lastPage !== true){
-      nextPage()
-      }else if (e.which === 100 && firstPage !== true){
+      if (e.which === 65 && lastPage !== true){
+       nextPage()
+      }else if (e.which === 37 && lastPage !== true){
+       nextPage()
+      }else if (e.which === 68 && firstPage !== true){
+        backPage()
+      }else if (e.which === 39 && firstPage !== true){
         backPage()
       }else{
     }
   }
   
   return (
-    <div className='container-book-viewer'  onKeyPress={(e) => message(e)} tabIndex="0">
+    <div className='container-book-viewer'  onKeyDown={(e) => message(e)} tabIndex="0">
       <div className="image-box">
         <img className='image' src={pages[currentPage]} alt="" />
         <div className="page-buttons">
