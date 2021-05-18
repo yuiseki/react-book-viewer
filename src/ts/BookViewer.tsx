@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import '../css/BookViewer.css'
 export interface BookViewer {
   pages: string[]
@@ -6,9 +6,15 @@ export interface BookViewer {
 
 export const BookViewer: React.FC<BookViewer> = ({pages}: BookViewer) => {
   const [currentPage, setCurrentPage] = useState(0)
+  const [imgWidth, setImgWidth] = useState<number>(0)
   const [isLastPage, setIsLastPage] = useState(false)
   const [isFirstPage, setIsFirstPage] = useState(true)
-
+  const imgElement = useRef<HTMLImageElement>(null)
+  useEffect(() => {
+    if (imgElement.current) {
+      setImgWidth(imgElement?.current?.width)
+    }
+  }, [currentPage])
   const checkPage = (page) => {
     if (page === pages.length-1) {
       setIsFirstPage(false)
@@ -55,10 +61,10 @@ export const BookViewer: React.FC<BookViewer> = ({pages}: BookViewer) => {
   return (
     <div className='container-book-viewer'>
       <div className="image-box">
-        <img className='image' src={pages[currentPage]} alt=""/>
+        <img className='image' src={pages[currentPage]} alt="" ref={imgElement}/>
         <div className="page-buttons">
-          <button className="next-page-button" onClick={nextPage} disabled={isLastPage} tabIndex={-1}><div className="text">aaaaaaaaaaaaaa</div></button>
-          <button className="back-page-button" onClick={backPage} disabled={isFirstPage} tabIndex={-1}><div className="text">aaaaaaaaaaaaaa</div></button>
+          <button className="next-page-button" onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={{width: imgWidth/2}}><div className="text">aaaaaaaaaaaaaa</div></button>
+          <button className="back-page-button" onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={{width: imgWidth/2}}><div className="text">aaaaaaaaaaaaaa</div></button>
         </div>
       </div>
       <div className='tooltip-bar'>
