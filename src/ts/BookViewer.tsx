@@ -21,10 +21,10 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children}: BookViewer) 
   const imgElement = useRef<HTMLImageElement>(null)
   useEffect(() => {
     if (imgElement.current) {
-      setImgWidth(imgElement?.current?.width)
+      setImgWidth(imgElement.current.width)
     }
     setImgHeight(calculateImgHeight)
-  }, [currentPage])
+  })
   const checkPage = (page) => {
     if (page === pages.length-1) {
       setIsFirstPage(false)
