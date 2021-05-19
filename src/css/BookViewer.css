@@ -1,5 +1,9 @@
+html, body{
+  overflow: hidden;
+  margin: 0;
+}
 .container-book-viewer {
-  background-color: gray;
+  background-color: #545454;
   height:100%;
   margin: 0;
 }
@@ -7,12 +11,10 @@
   text-align: center;
   width :auto;
   margin: 0;
-  mix-blend-mode: overlay; 
   display: flex;
   justify-content: center;
 }
 .image {
-  width:auto;
   margin: 0;
 }
 .page-buttons {
@@ -53,6 +55,7 @@
   bottom: 0;
   box-sizing: border-box;
   text-align: center;
+  opacity: 75%;
 }
 .input {
   width: 50%;
