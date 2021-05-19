@@ -52,7 +52,7 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children}: BookViewer) 
           width: '100%'
         })
         setImgBoxStyle({
-          width: '75%'
+          width: '60%'
         })
       }
     }
