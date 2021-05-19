@@ -7,15 +7,15 @@ html, body{
   height:100%;
   margin: 0;
 }
-.image-box {
-  text-align: center;
-  width :auto;
+.image-container {
   margin: 0;
   display: flex;
   justify-content: center;
+
 }
-.image {
-  margin: 0;
+.image-box {
+  display: flex;
+  align-items: center;
 }
 .page-buttons {
   display: flex;

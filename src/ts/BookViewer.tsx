@@ -15,16 +15,49 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children}: BookViewer) 
   }
   const [currentPage, setCurrentPage] = useState(0)
   const [imgWidth, setImgWidth] = useState<number>(0)
-  const [imgHeight, setImgHeight] = useState(0)
+  const [imgHeight, setImgHeight] = useState<number>(0)
+  const [maxImgHeight, setMaxImgHeight] = useState(0)
   const [isLastPage, setIsLastPage] = useState(false)
   const [isFirstPage, setIsFirstPage] = useState(true)
   const imgElement = useRef<HTMLImageElement>(null)
+  const [imgStyle, setImgStyle] = useState<{}>()
+  const [imgContainerStyle, setImgContainerStyle] = useState<{}>()
+  const [imgBoxStyle, setImgBoxStyle] = useState<{}>()
   useEffect(() => {
-    if (imgElement.current) {
+    if (imgElement.current?.width && imgElement.current?.width) {
       setImgWidth(imgElement.current.width)
+      setImgHeight(imgElement.current.height)
     }
-    setImgHeight(calculateImgHeight)
+    setMaxImgHeight(calculateImgHeight)
   })
+  useEffect(() => {
+    if (imgHeight && imgWidth) {
+      if (imgHeight > imgWidth) {
+        setImgStyle({
+          height: '100%',
+          width: 'auto'
+        })
+        setImgContainerStyle({
+          height: maxImgHeight,
+          width: 'auto'
+        })
+        setImgBoxStyle({})
+      } else {
+        setImgStyle({
+          height: 'auto',
+          width: '100%'
+        })
+        setImgContainerStyle({
+          height: maxImgHeight,
+          width: '100%'
+        })
+        setImgBoxStyle({
+          width: '75%'
+        })
+      }
+    }
+  }, [imgHeight, imgWidth])
+
   const checkPage = (page) => {
     if (page === pages.length-1) {
       setIsFirstPage(false)
@@ -82,11 +115,13 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children}: BookViewer) 
   return (
     <div className='container-book-viewer' style={{height: window.innerHeight}}>
       {children && <children.Render/>}
-      <div className="image-box" style={{height: imgHeight}}>
-        <img className='image' src={pages[currentPage]} alt="" ref={imgElement}/>
-        <div className="page-buttons">
-          <button className="next-page-button" onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={{width: imgWidth/2}}><div className="text">aaaaaaaaaaaaaa</div></button>
-          <button className="back-page-button" onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={{width: imgWidth/2}}><div className="text">aaaaaaaaaaaaaa</div></button>
+      <div className='image-container' style={imgContainerStyle}>
+        <div className="image-box" style={imgBoxStyle}>
+          <img className='image' src={pages[currentPage]} alt="" ref={imgElement} style={imgStyle}/>
+          <div className="page-buttons">
+            <button className="next-page-button" onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={{width: imgWidth/2}}><div className="text">aaaaaaaaaaaaaa</div></button>
+            <button className="back-page-button" onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={{width: imgWidth/2}}><div className="text">aaaaaaaaaaaaaa</div></button>
+          </div>
         </div>
       </div>
       <div className='tooltip-bar'>
