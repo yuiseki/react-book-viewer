@@ -31,7 +31,51 @@ html, body{
   border: none;
   outline: none;
 }
+.move-left-button {
+  position: absolute;
+    left: 0%;
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    border: none;
+    background: radial-gradient( rgb(229, 188, 213) 40%, rgb(241, 11, 203));
+    opacity: 0;
+    outline: none;
+}
+.move-left-button:before {
+  position: relative;
+  left: 10%;
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+  border: none;
+  background: radial-gradient( rgb(229, 188, 213) 40%, rgb(241, 11, 203));
+  opacity: 0;
+  outline: none;
+}
 
+.move-left-button:focus {
+  -webkit-transition: 2s;
+  transition: 2s;
+  transition-timing-function: cubic-bezier(.26,-1.03,.6,1.95);
+  animation:  3s ease 0.5s alternate forwards w,
+              1s cubic-bezier(.31,2.17,.6,1.95) 2.5s alternate forwards h,
+              0.7s cubic-bezier(.31,1.17,.6,3.95) 3.5s alternate forwards v,
+              2s ease 3s reverse forwards w
+}
+
+@keyframes w {
+  from {opacity: 0;box-shadow: 0 0 0pt 2pt white;}
+    to {opacity: 1; box-shadow: 0 0 40pt 2pt white;}
+}
+@keyframes h {
+  from { left: 0px;}
+  to {left: 300px;}
+}
+@keyframes v {
+  from { left: 300px; }
+    to { left :0px;   }
+}
 .back-page-button {
   position: relative;
   background-color: transparent;
