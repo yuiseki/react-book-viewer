@@ -5,11 +5,19 @@
   "repository": "git@github.com:Futsukazuki/react-book-viewer.git",
   "author": "ao-spirogyra",
   "license": "MIT",
+  "description": "A book viewer with React",
+  "keywords": [
+    "react",
+    "book",
+    "manga",
+    "viewer"
+  ],
   "scripts": {
     "transpile": "webpack",
     "prepublishOnly": "yarn transpile",
     "start:dev": "webpack serve --config webpack.config.example.js"
   },
+  "types": "dist/BookViewer.d.ts",
   "peerDependencies": {
     "react": "16.13.0",
     "react-dom": "16.13.0"

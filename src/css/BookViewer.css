@@ -1,19 +1,21 @@
-.container-book-viewer {
-  background-color: gray;
-}
-.image-box {
-  height: 95%;
-  text-align: center;
-  width :auto;
+html, body{
+  overflow: hidden;
   margin: 0;
-  mix-blend-mode: overlay; 
+}
+.container-book-viewer {
+  background-color: #545454;
+  height:100%;
+  margin: 0;
+}
+.image-container {
+  margin: 0;
   display: flex;
   justify-content: center;
+
 }
-.image {
-  height: 100%;
-  width:auto;
-  margin: 0;
+.image-box {
+  display: flex;
+  align-items: center;
 }
 .page-buttons {
   display: flex;
@@ -53,6 +55,7 @@
   bottom: 0;
   box-sizing: border-box;
   text-align: center;
+  opacity: 75%;
 }
 .input {
   width: 50%;
