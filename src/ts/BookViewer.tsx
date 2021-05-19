@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useMemo } from 'react'
 import '../css/BookViewer.css'
 export interface BookViewer {
   pages: string[],
@@ -15,6 +15,7 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children}: BookViewer) 
   }
   const [currentPage, setCurrentPage] = useState(0)
   const [imgWidth, setImgWidth] = useState<number>(0)
+  const [imgHeight, setImgHeight] = useState(0)
   const [isLastPage, setIsLastPage] = useState(false)
   const [isFirstPage, setIsFirstPage] = useState(true)
   const imgElement = useRef<HTMLImageElement>(null)
@@ -22,6 +23,7 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children}: BookViewer) 
     if (imgElement.current) {
       setImgWidth(imgElement?.current?.width)
     }
+    setImgHeight(calculateImgHeight)
   }, [currentPage])
   const checkPage = (page) => {
     if (page === pages.length-1) {
@@ -35,16 +37,18 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children}: BookViewer) 
       setIsLastPage(false)
     }
   }
-  let imgHeight;
-  if (children?.height.endsWith('px')) {
-    const heightPx = children.height.split('px')[0]
-    imgHeight = window.innerHeight*0.95-Number(heightPx)
-  } else if (children?.height.endsWith('%')) {
-    const heightPercent = children.height.split('%')[0]
-    imgHeight = window.innerHeight*(1-(0.05+Number(heightPercent)/100))
-  } else {
-    imgHeight = window.innerHeight*0.95
-  }
+  const calculateImgHeight = useMemo(() => {
+    if (children?.height.endsWith('px')) {
+      const heightPx = children.height.split('px')[0]
+      return window.innerHeight*0.95-Number(heightPx)
+    } else if (children?.height.endsWith('%')) {
+      const heightPercent = children.height.split('%')[0]
+      return window.innerHeight*(1-(0.05+Number(heightPercent)/100))
+    } else {
+      return window.innerHeight*0.95
+    }
+  }, [children?.height])
+  
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(e.target.value)
     setCurrentPage(newValue)
