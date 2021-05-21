@@ -119,8 +119,16 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children}: BookViewer) 
         <div className="image-box" style={imgBoxStyle}>
           <img className='image' src={pages[currentPage]} alt="" ref={imgElement} style={imgStyle}/>
           <div className="page-buttons">
-            <button className="next-page-button" onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={{width: imgWidth/2}}></button>
-            <button className="back-page-button" onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={{width: imgWidth/2}}></button>
+            <button className="next-page-button" onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={{width: imgWidth/2}}>
+              <button className='next-page-left-arrow-button' onClick={nextPage} disabled={isLastPage} tabIndex={-1}>
+                <span className='next-page-left-arrow'></span>
+              </button>
+            </button>
+            <button className="back-page-button" onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={{width: imgWidth/2}}>
+            <button className='next-page-right-arrow-button' onClick={nextPage} disabled={isLastPage} tabIndex={-1}>
+                <span className='next-page-right-arrow'></span>
+              </button>
+            </button>
           </div>
         </div>
       </div>

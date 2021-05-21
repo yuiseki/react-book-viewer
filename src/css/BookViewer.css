@@ -40,6 +40,48 @@ html, body{
   border: none;
   outline: none;
 }
+.next-page-left-arrow-button {
+  position: relative;
+  left: -35%;
+  height: 54px;
+  width: 54px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  background-color: black;
+  opacity: 75%;
+}
+.next-page-left-arrow {
+  width: 16px;
+  height: 16px;
+  transform: rotate(-45deg);
+  border-left: 1px solid #545454;
+  border-top: 1px solid #545454;
+  position: absolute;
+  right: 30%;
+  top: 35%;
+}
+.next-page-right-arrow-button {
+  position: relative;
+  right: -35%;
+  height: 54px;
+  width: 54px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  background-color: black;
+  opacity: 75%;
+}
+.next-page-right-arrow {
+  width: 16px;
+  height: 16px;
+  transform: rotate(-45deg);
+  border-right: 1px solid #545454;
+  border-bottom: 1px solid #545454;
+  position: absolute;
+  left: 30%;
+  top: 35%;
+}
 .text {
   background-color: transparent;
   font-size: 50px;
