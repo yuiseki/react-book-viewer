@@ -30,6 +30,7 @@ html, body{
   right: 15%;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 .back-page-button {
@@ -39,6 +40,7 @@ html, body{
   left: 15%;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 .next-page-left-arrow-button {
   position: relative;
@@ -50,6 +52,7 @@ html, body{
   border-radius: 50px;
   background-color: black;
   opacity: 75%;
+  cursor: pointer;
 }
 .next-page-left-arrow {
   width: 16px;
@@ -71,6 +74,7 @@ html, body{
   border-radius: 50px;
   background-color: black;
   opacity: 75%;
+  cursor: pointer;
 }
 .next-page-right-arrow {
   width: 16px;
