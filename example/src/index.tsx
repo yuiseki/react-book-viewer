@@ -24,5 +24,5 @@ const children = {
   Render: GlobalHeader,
   height: offSetHeight
 }
-const App = () => <BookViewer pages={images} children={children}/>;
+const App = () => <BookViewer pages={images} children={children} direction='rtl'/>;
 render(<App />, document.getElementById('root'));

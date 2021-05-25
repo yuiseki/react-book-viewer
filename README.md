@@ -38,3 +38,9 @@ cosnt App = () => {
   )
 }
 ```
+
+you can switch direction in which pages go
+```
+<BookViewer pages={pages} children={children} direction='ltr'/>
+```
+default is 'rtl' so `direction='rtl'` can be abbreviated

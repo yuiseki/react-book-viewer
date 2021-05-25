@@ -5,10 +5,11 @@ export interface BookViewer {
   children?: {
     Render: React.FC
     height: string
-  }
+  },
+  direction?: 'ltr' | 'rtl'
 }
 
-export const BookViewer: React.FC<BookViewer> = ({pages, children}: BookViewer) => {
+export const BookViewer: React.FC<BookViewer> = ({pages, children, direction}: BookViewer) => {
   if (children && (!children?.height || (!children.height.endsWith('px') && !children.height.endsWith('%')))) {
     console.error('invalid height. use \'px\' or \'%\'')
     return null
@@ -112,28 +113,51 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children}: BookViewer) 
   // Otherwise it will stop working
   document.onkeydown=(e)=>{onKeyDown(e)}
 
+  const renderButtons = () => {
+    if (direction === 'ltr') {
+      return (
+        <div className="page-buttons">
+          <button className="go-left-button" onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={{width: imgWidth/2}}>
+            <button className='go-left-arrow-button' onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={isFirstPage ? { opacity: '25%' } : {}}>
+              <span className='go-left-arrow'></span>
+            </button>
+          </button>
+          <button className="go-right-button" onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={{width: imgWidth/2}}>
+          <button className='go-right-arrow-button' onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={isLastPage ? { opacity: '25%' } : {}}>
+              <span className='go-right-arrow'></span>
+            </button>
+          </button>
+        </div>
+      )
+    } else {
+      return (
+        <div className="page-buttons">
+          <button className="go-left-button" onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={{width: imgWidth/2}}>
+            <button className='go-left-arrow-button' onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={isLastPage ? { opacity: '25%' } : {}}>
+              <span className='go-left-arrow'></span>
+            </button>
+          </button>
+          <button className="go-right-button" onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={{width: imgWidth/2}}>
+          <button className='go-right-arrow-button' onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={isFirstPage ? { opacity: '25%' } : {}}>
+              <span className='go-right-arrow'></span>
+            </button>
+          </button>
+        </div>
+      )
+    }
+  }
+
   return (
     <div className='container-book-viewer' style={{height: window.innerHeight}}>
       {children && <children.Render/>}
       <div className='image-container' style={imgContainerStyle}>
         <div className="image-box" style={imgBoxStyle}>
           <img className='image' src={pages[currentPage]} alt="" ref={imgElement} style={imgStyle}/>
-          <div className="page-buttons">
-            <button className="next-page-button" onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={{width: imgWidth/2}}>
-              <button className='next-page-left-arrow-button' onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={isLastPage ? { opacity: '25%' } : {}}>
-                <span className='next-page-left-arrow'></span>
-              </button>
-            </button>
-            <button className="back-page-button" onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={{width: imgWidth/2}}>
-            <button className='next-page-right-arrow-button' onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={isFirstPage ? { opacity: '25%' } : {}}>
-                <span className='next-page-right-arrow'></span>
-              </button>
-            </button>
-          </div>
+          {renderButtons()}
         </div>
       </div>
       <div className='tooltip-bar'>
-        <input className='input' type="range" min={0} max={pages.length-1} onChange={onChange} value={currentPage}/>
+        <input className='input' type="range" min={0} max={pages.length-1} onChange={onChange} value={currentPage} style={direction ? {direction: direction} : {direction: 'rtl'}}/>
       </div>
     </div>
   )

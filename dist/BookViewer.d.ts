@@ -6,5 +6,6 @@ export interface BookViewer {
         Render: React.FC;
         height: string;
     };
+    direction?: 'ltr' | 'rtl';
 }
 export declare const BookViewer: React.FC<BookViewer>;
