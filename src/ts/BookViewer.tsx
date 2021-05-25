@@ -119,14 +119,14 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children}: BookViewer) 
         <div className="image-box" style={imgBoxStyle}>
           <img className='image' src={pages[currentPage]} alt="" ref={imgElement} style={imgStyle}/>
           <div className="page-buttons">
-            <button className="next-page-button" onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={{width: imgWidth/2}}>
-              <button className='next-page-left-arrow-button' onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={isLastPage ? { opacity: '25%' } : {}}>
-                <span className='next-page-left-arrow'></span>
+            <button className="go-left-button" onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={{width: imgWidth/2}}>
+              <button className='go-left-arrow-button' onClick={nextPage} disabled={isLastPage} tabIndex={-1} style={isLastPage ? { opacity: '25%' } : {}}>
+                <span className='go-left-arrow'></span>
               </button>
             </button>
-            <button className="back-page-button" onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={{width: imgWidth/2}}>
-            <button className='next-page-right-arrow-button' onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={isFirstPage ? { opacity: '25%' } : {}}>
-                <span className='next-page-right-arrow'></span>
+            <button className="go-right-button" onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={{width: imgWidth/2}}>
+            <button className='go-right-arrow-button' onClick={backPage} disabled={isFirstPage} tabIndex={-1} style={isFirstPage ? { opacity: '25%' } : {}}>
+                <span className='go-right-arrow'></span>
               </button>
             </button>
           </div>

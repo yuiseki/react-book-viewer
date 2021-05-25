@@ -23,7 +23,7 @@ html, body{
   position: absolute;
   width: auto;
 }
-.next-page-button {
+.go-left-button {
   position: relative;
   background-color: transparent;
   z-index: 10;
@@ -33,16 +33,7 @@ html, body{
   cursor: pointer;
 }
 
-.back-page-button {
-  position: relative;
-  background-color: transparent;
-  z-index: 10;
-  left: 15%;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-.next-page-left-arrow-button {
+.go-left-arrow-button {
   position: relative;
   left: -35%;
   height: 54px;
@@ -54,7 +45,7 @@ html, body{
   opacity: 75%;
   cursor: pointer;
 }
-.next-page-left-arrow {
+.go-left-arrow {
   width: 16px;
   height: 16px;
   transform: rotate(-45deg);
@@ -64,7 +55,18 @@ html, body{
   right: 30%;
   top: 35%;
 }
-.next-page-right-arrow-button {
+
+.go-right-button {
+  position: relative;
+  background-color: transparent;
+  z-index: 10;
+  left: 15%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.go-right-arrow-button {
   position: relative;
   right: -35%;
   height: 54px;
@@ -76,7 +78,7 @@ html, body{
   opacity: 75%;
   cursor: pointer;
 }
-.next-page-right-arrow {
+.go-right-arrow {
   width: 16px;
   height: 16px;
   transform: rotate(-45deg);
