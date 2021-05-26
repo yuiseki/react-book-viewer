@@ -1,7 +1,3 @@
-html, body{
-  overflow: hidden;
-  margin: 0;
-}
 .container-book-viewer {
   background-color: #545454;
   height:100%;
