@@ -25,6 +25,17 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children, direction}: B
   const [imgContainerStyle, setImgContainerStyle] = useState<{}>()
   const [imgBoxStyle, setImgBoxStyle] = useState<{}>()
   useEffect(() => {
+    const originalMargin = document.body.style.margin
+    const originalOverflow = document.body.style.overflow
+    console.log(originalMargin, originalOverflow)
+    document.body.style.margin = '0'
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.margin = originalMargin
+      document.body.style.overflow = originalOverflow
+    }
+  }, [])
+  useEffect(() => {
     if (imgElement.current?.width && imgElement.current?.width) {
       setImgWidth(imgElement.current.width)
       setImgHeight(imgElement.current.height)
