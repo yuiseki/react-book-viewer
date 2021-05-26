@@ -1,4 +1,8 @@
 # react-book-viewer
+## A request from the author
+plz let me know by issue if you've found a bug or have request for new features or something.
+i'd love your issues thx.
+https://github.com/ao-spirogyra/react-book-viewer/issues
 ## Getting started
 ### Installation
 `npm install react-book-viewer` or `yarn add react-book-viewer`
