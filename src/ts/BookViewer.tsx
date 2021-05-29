@@ -27,7 +27,6 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children, direction}: B
   useEffect(() => {
     const originalMargin = document.body.style.margin
     const originalOverflow = document.body.style.overflow
-    console.log(originalMargin, originalOverflow)
     document.body.style.margin = '0'
     document.body.style.overflow = 'hidden'
     return () => {
@@ -44,7 +43,7 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children, direction}: B
   })
   useEffect(() => {
     if (imgHeight && imgWidth) {
-      if (imgHeight > imgWidth) {
+      if (imgHeight > imgWidth || imgWidth < window.innerWidth) {
         setImgStyle({
           height: '100%',
           width: 'auto'
@@ -68,7 +67,7 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children, direction}: B
         })
       }
     }
-  }, [imgHeight, imgWidth])
+  }, [imgElement.current?.src])
 
   const checkPage = (page) => {
     if (page === pages.length-1) {
