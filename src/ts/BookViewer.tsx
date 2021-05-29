@@ -202,7 +202,7 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children, direction}: B
       )
     }
   }
-  console.log(styles)
+
   return (
     <div className='container-book-viewer' style={{height: window.innerHeight}}>
       {children && <children.Render/>}
