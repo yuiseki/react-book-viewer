@@ -15,7 +15,8 @@
   "scripts": {
     "transpile": "webpack",
     "prepublishOnly": "yarn transpile",
-    "start:dev": "webpack serve --config webpack.config.example.js"
+    "start:dev": "webpack serve --config webpack.config.example.js",
+    "test:tsc": "tsc -p tsconfig.json --noEmit"
   },
   "types": "dist/BookViewer.d.ts",
   "peerDependencies": {

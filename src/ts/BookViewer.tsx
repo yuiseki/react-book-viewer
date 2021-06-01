@@ -42,7 +42,7 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children, direction}: B
   })
 
   useEffect(() => {
-    const getImgSize = (img) => {
+    const getImgSize = (img: string) => {
       return new Promise<{height: number, width: number}>((resolved, _rejected) => {
         const i = new Image()
         i.onload = () => {
@@ -76,7 +76,7 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children, direction}: B
       document.body.style.overflow = originalOverflow
     }
   }, [])
-  const setImgStyle = (width, height, maxImgHeight) => {
+  const setImgStyle = (width: number, height: number, maxImgHeight: number) => {
     if (width !== 0 && height !== 0) {
       if (height > width || width*(maxImgHeight/height) < window.innerWidth) {
         return {
@@ -126,11 +126,11 @@ export const BookViewer: React.FC<BookViewer> = ({pages, children, direction}: B
     }
   }, [children?.height])
 
-  const checkPage = (page) => {
-    if (page === pages.length-1) {
+  const checkPage = (index: number) => {
+    if (index === pages.length-1) {
       setIsFirstPage(false)
       setIsLastPage(true)
-    } else if (page === 0) {
+    } else if (index === 0) {
       setIsFirstPage(true)
       setIsLastPage(false)
     } else {
